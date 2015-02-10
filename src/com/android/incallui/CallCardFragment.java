@@ -1081,6 +1081,9 @@ public class CallCardFragment extends BaseFragment<CallCardPresenter, CallCardPr
                         setViewStatePostAnimation(listener);
                         mIsAnimating = false;
                         InCallPresenter.getInstance().onShrinkAnimationComplete();
+                        if (animator != null) {
+                            animator.removeListener(this);
+                        }
                     }
                 });
                 animator.start();
